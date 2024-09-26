@@ -1,0 +1,5 @@
+mysql> create database Tbooking;
+//Query OK, 1 row affected (0.05 sec)//
+
+mysql> use Tbooking;
+//Database changed//
