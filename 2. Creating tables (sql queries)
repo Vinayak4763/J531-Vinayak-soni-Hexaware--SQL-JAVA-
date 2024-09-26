@@ -4,7 +4,7 @@ VENUE TABLE//
                     venue_id int,
                     venue_name varchar(20),
                     address varchar(20),
-                    constraint v_id_ticket primary key(venue_id));
+                    constraint Venue_Venue_id_pk primary key(venue_id));
 
  desc Venue;
 +------------+-------------+------+-----+---------+-------+
@@ -28,8 +28,8 @@ CREATE TABLE Event (
     ->     ticket_price DECIMAL(10, 2),
     ->     event_type ENUM('Movie', 'Sports', 'Concert'),
     ->     booking_id INT,
-    ->     CONSTRAINT fk_venue FOREIGN KEY (venue_id) REFERENCES Venue(venue_id),
-    ->     CONSTRAINT fk_booking FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
+    ->     CONSTRAINT Event_venue_id_fk FOREIGN KEY (venue_id) REFERENCES Venue(venue_id),
+    ->     CONSTRAINT Event_booking_id_fk FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
     -> );
 
   desc Event;
@@ -55,7 +55,7 @@ CUSTOMER TABLE//
     ->     email VARCHAR(100),
     ->     phone_number VARCHAR(15),
     ->     booking_id INT,
-    ->     CONSTRAINT fk_booking FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
+    ->     CONSTRAINT Customer_booking_id_fk FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
     -> );
 
 desc Customer;
@@ -78,7 +78,7 @@ CREATE TABLE Booking (
     ->     num_tickets INT,
     ->     total_cost DECIMAL(10, 2),
     ->     booking_date DATE,
-    ->     CONSTRAINT fk_event FOREIGN KEY (event_id) REFERENCES Event(event_id)
+    ->     CONSTRAINT Booking_event_id_fk FOREIGN KEY (event_id) REFERENCES Event(event_id)
     -> );
 
      desc Booking;
