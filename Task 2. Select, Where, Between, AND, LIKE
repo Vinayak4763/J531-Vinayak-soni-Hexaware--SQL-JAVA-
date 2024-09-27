@@ -133,3 +133,42 @@ Output:
 | booking_id | event_id | customer_id | num_tickets | total_cost |
 |------------|----------|-------------|-------------|------------|
 | 2          | 2        | 2           | 5           | 7500.00    |
+
+10: Retrieve customer information whose phone number ends with '000'
+
+SELECT customer_id, customer_name, email, phone_number
+FROM Customer
+WHERE phone_number LIKE '%000';
+
+Output:
+| customer_id | customer_name | email | phone_number |
+|-------------|---------------|-------|--------------|
+| *No matching records* (Assuming none of the customers have phone numbers ending with '000') |
+
+11: Retrieve the events in order whose seat capacity is more than 15000
+
+SELECT event_name, total_seats
+FROM Event
+WHERE total_seats > 15000
+ORDER BY total_seats;
+
+Output:
+| event_name | total_seats |
+|------------|-------------|
+| *No matching records* (Assuming no events have a seat capacity greater than 15000) |
+
+12: Select event names that do not start with 'x', 'y', or 'z'
+
+SELECT event_name
+FROM Event
+WHERE event_name NOT LIKE 'x%' 
+AND event_name NOT LIKE 'y%' 
+AND event_name NOT LIKE 'z%';
+
+Output:
+| event_name      |
+|-----------------|
+| Movie Night     |
+| Cricket Match   |
+| Music Evening   |
+| Bhopal Carnival |
