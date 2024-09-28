@@ -1,4 +1,4 @@
-# Hexaware-Assignment-Ticket-booking-system-
+# J32 Vinayak soni Hexaware-Assignment-Ticket-booking-system-
 Mainly contains the assignment given to Us for preparing the database for Task 1 including the SQL query generation,ER diagram from the workbench and table creation quesries. The repository contains following:
 1. Create the database named "TicketBookingSystem"
 2. Write SQL scripts to create the mentioned tables with appropriate data types, constraints, and 
