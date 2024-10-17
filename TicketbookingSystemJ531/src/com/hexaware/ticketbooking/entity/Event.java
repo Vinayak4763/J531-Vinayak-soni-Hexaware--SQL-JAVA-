@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public abstract class Event {
+	private int eventId;
     private String eventName;
     private LocalDate eventDate;
     private LocalTime eventTime;
@@ -24,6 +25,22 @@ public abstract class Event {
         this.ticketPrice = 0.0;
         this.eventType = "Generic";
     }
+    
+    public Event(int eventId, String eventName, Venue venue) {
+        this.eventId = eventId;
+        this.eventName = eventName;
+        this.venue = venue;
+    }
+    
+    public Event(int eventId, String eventName, Venue venue, double ticketPrice, int availableSeats, String eventType) {
+        this.eventId = eventId;
+        this.eventName = eventName;
+        this.venue = venue;
+        this.ticketPrice = ticketPrice;
+        this.availableSeats = availableSeats;
+        this.eventType = eventType;
+        this.totalSeats = availableSeats; // Assuming totalSeats is equal to availableSeats initially
+    }
 
     // Overloaded Constructor
     public Event(String eventName, LocalDate eventDate, LocalTime eventTime, 
@@ -39,6 +56,15 @@ public abstract class Event {
 }
 
     // Getters and Setters
+    
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+    
     public String getEventName() {
         return eventName;
     }

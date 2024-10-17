@@ -15,7 +15,7 @@ class BookingSystem {
                              double ticketPrice, String eventType, String venueName, String venueAddress) {
         LocalDate eventDate = LocalDate.parse(date);
         LocalTime eventTime = LocalTime.parse(time);
-        Venue venue = new Venue(venueName, venueAddress); // Include venue address
+        Venue venue = new Venue(totalSeats, venueName, venueAddress); // Include venue address
 
         switch (eventType.toLowerCase()) {
             case "movie":

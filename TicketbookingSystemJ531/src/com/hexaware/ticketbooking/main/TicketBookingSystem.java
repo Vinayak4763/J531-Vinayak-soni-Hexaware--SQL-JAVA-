@@ -32,10 +32,10 @@ public class TicketBookingSystem {
             case "movie":
                 System.out.print("Enter Genre: ");
                 String genre = scanner.next();
-                
+
                 System.out.print("Enter Actor Name: ");
                 String actor = scanner.next();
-                
+
                 System.out.print("Enter Actress Name: ");
                 String actress = scanner.next();
 
@@ -68,7 +68,7 @@ public class TicketBookingSystem {
         }
     }
 
-    // Method to display event details (polymorphism in action)
+    // Method to display event details
     public void displayEventDetails(Event event) {
         if (event != null) {
             event.displayEventDetails();
@@ -102,42 +102,57 @@ public class TicketBookingSystem {
     public static void main(String[] args) {
         TicketBookingSystem system = new TicketBookingSystem();
         boolean flag = true;
-
-        System.out.print("Create an event type (Movie, Concert, Sports): ");
-        String eventType = scanner.next();
-        Event event = system.createEvent(eventType);
+        Event event = null; // Event initially set to null
 
         while (flag) {
             System.out.println("\n***** Ticket Booking Menu *****");
-            System.out.println("1. View Event Details");
-            System.out.println("2. Book Tickets");
-            System.out.println("3. Cancel Tickets");
-            System.out.println("4. Exit");
+            System.out.println("1. Create Event");
+            System.out.println("2. View Event Details");
+            System.out.println("3. Book Tickets");
+            System.out.println("4. Cancel Tickets");
+            System.out.println("5. Exit");
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    system.displayEventDetails(event);
-                    break;
-
-                case 2:
-                    System.out.print("Enter the number of tickets to book: ");
-                    int numTickets = scanner.nextInt();
-                    double totalCost = system.bookTickets(event, numTickets);
-                    if (totalCost > 0) {
-                        System.out.println("Total cost: $" + totalCost);
+                    System.out.print("Enter event type (Movie, Concert, Sports): ");
+                    String eventType = scanner.next();
+                    event = system.createEvent(eventType); // Create the event
+                    if (event != null) {
+                        System.out.println("Event created successfully!");
                     }
                     break;
 
+                case 2:
+                    system.displayEventDetails(event); // View event details
+                    break;
+
                 case 3:
-                    System.out.print("Enter the number of tickets to cancel: ");
-                    numTickets = scanner.nextInt();
-                    system.cancelTickets(event, numTickets);
+                    if (event == null) {
+                        System.err.println("No event available. Please create an event first.");
+                    } else {
+                        System.out.print("Enter the number of tickets to book: ");
+                        int numTickets = scanner.nextInt();
+                        double totalCost = system.bookTickets(event, numTickets);
+                        if (totalCost > 0) {
+                            System.out.println("Total cost: $" + totalCost);
+                        }
+                    }
                     break;
 
                 case 4:
+                    if (event == null) {
+                        System.err.println("No event available. Please create an event first.");
+                    } else {
+                        System.out.print("Enter the number of tickets to cancel: ");
+                        int numTickets = scanner.nextInt();
+                        system.cancelTickets(event, numTickets);
+                    }
+                    break;
+
+                case 5:
                     flag = false;
                     System.out.println("Exiting... Thank you!");
                     break;

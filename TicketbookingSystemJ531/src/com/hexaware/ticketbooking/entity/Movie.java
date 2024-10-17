@@ -15,8 +15,20 @@ public class Movie extends Event {
         this.actorName = "Unknown Actor";
         this.actressName = "Unknown Actress";
     }
+    
+    public Movie(int eventId, String eventName, Venue venue) {
+    	
+		super(eventId, eventName, venue);
+		
+	}
+    public Movie(int eventId, String eventName, Venue venue, double ticketPrice, int availableSeats) {
+        super(eventId, eventName, venue, ticketPrice, availableSeats, "Movie");
+        this.genre = "Unknown Genre";      // Default value
+        this.actorName = "Unknown Actor";  // Default value
+        this.actressName = "Unknown Actress"; // Default value
+    }
 
-    // Overloaded Constructor
+	// Overloaded Constructor
     public Movie(String eventName, LocalDate eventDate, LocalTime eventTime, 
                  Venue venue, int totalSeats, double ticketPrice, 
                  String genre, String actorName, String actressName) {

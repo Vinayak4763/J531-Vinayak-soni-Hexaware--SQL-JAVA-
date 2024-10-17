@@ -14,6 +14,16 @@ public class Sports extends Event {
         this.teamsName = "Unknown Teams";
     }
 
+    public Sports(int eventId, String eventName, Venue venue) {
+        super(eventId, eventName, venue); // Call the superclass constructor
+    }
+    
+    public Sports(int eventId, String eventName, Venue venue, double ticketPrice, int availableSeats) {
+        super(eventId, eventName, venue, ticketPrice, availableSeats, "Sports");
+        this.sportName = "Unknown Sport"; // Default value
+        this.teamsName = "Unknown League"; // Default value
+    }
+
     // Overloaded Constructor
     public Sports(String eventName, LocalDate eventDate, LocalTime eventTime, 
                   Venue venue, int totalSeats, double ticketPrice, 

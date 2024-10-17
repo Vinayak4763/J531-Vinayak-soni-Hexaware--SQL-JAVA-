@@ -4,15 +4,16 @@ public class Customer {
     private String customerName;
     private String email;
     private String phoneNumber;
-
+    private int customerId;
     // Default Constructor
     public Customer() {super();}
 
     // Parameterized Constructor
-    public Customer(String customerName, String email, String phoneNumber) {
+    public Customer(String customerName, String email, String phoneNumber,int customerId) {
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.customerId=customerId;
     }
 
     // Getter and Setter methods
@@ -24,6 +25,15 @@ public class Customer {
 
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    
+    public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	
 
     // Display method
     public void displayCustomerDetails() {
